@@ -1,0 +1,12 @@
+// bower:scss
+// endbower
+
+//bower components not automaticaly included
+@import '/bower_components/bootswatch-dist/css/bootstrap.min.css';
+@import '/bower_components/angular-ui-select/dist/select.min.css';
+@import '/bower_components/siftlogic.angular.treeview/css/angular.treeview.css';
+//bower components not automaticaly included END
+
+
+// components
+@import 'components/attributes';

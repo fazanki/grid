@@ -1,0 +1,275 @@
+{
+    "lastUpdated": 1421838988717,
+    "transactionalLastUpdated": 1421838988717,
+    "lastUpdatedBy": "G01886171",
+    "state": "ACTIVE",
+    "ossLocationId": 1,
+    "ossName": "ETF Lab London1 - IaaS Slough Simulation",
+    "operationalService": {
+        "lastUpdated": 1420727755234,
+        "transactionalLastUpdated": 1420727755234,
+        "lastUpdatedBy": "InitialLoad",
+        "state": "ACTIVE",
+        "operationalServiceId": 1,
+        "operationalService": "Compute",
+        "adminGroup": "fGLBbcloudbsstest3",
+        "opServiceCode": "COMPUTE",
+        "domain": {
+            "lastUpdated": null,
+            "transactionalLastUpdated": null,
+            "lastUpdatedBy": null,
+
+            "state": "ACTIVE",
+            "id": 1,
+            "name": "INTRANET"
+        },
+        "mandatoryOBN": false
+    },
+    "location": {
+        "lastUpdated": 1421067215540,
+        "transactionalLastUpdated": 1421067215540,
+        "lastUpdatedBy": "G48805407",
+        "state": "ACTIVE",
+        "locationId": 510,
+        "locationName": "Slough",
+        "locationCode": null,
+        "snlocid": "LOC0000743",
+        "parentId": 505,
+        "locationGranularityId": 3,
+        "locationGranularity": "AZ",
+        "parent": {
+            "locationId": 505,
+            "locationName": "UK",
+            "locationCode": "uk",
+            "locationLevel": 0,
+            "parent": {
+                "locationId": 502,
+                "locationName": "EMEA",
+                "locationCode": "emea",
+                "locationLevel": 0,
+                "parent": null,
+                "children": null
+            },
+            "children": null
+        },
+        "locationAttributes": []
+    },
+    "status": {
+        "lastUpdated": null,
+        "transactionalLastUpdated": null,
+        "lastUpdatedBy": null,
+        "state": "ACTIVE",
+        "id": 1,
+        "name": "Online"
+    },
+    "realm": [
+    {
+        "lastUpdated": 1420727755393,
+        "transactionalLastUpdated": 1420727755393,
+        "lastUpdatedBy": "InitialLoad",
+        "state": "ACTIVE",
+        "id": 1,
+        "name": "Campus/CIPE"
+    },
+    {
+        "lastUpdated": 1420727755393,
+        "transactionalLastUpdated": 1420727755393,
+        "lastUpdatedBy": "InitialLoad",
+        "state": "ACTIVE",
+        "id": 1,
+        "name": "DMZ"
+    }
+    ],
+    "businessScopes": {
+        "businessScope": [
+            {
+                "lastUpdated": 1420727755432,
+                "transactionalLastUpdated": 1420727755432,
+                "lastUpdatedBy": "InitialLoad",
+                "state": "ACTIVE",
+                "id": 1,
+                "name": "InvestmentBanking"
+            },
+            {
+                "lastUpdated": 1420727755443,
+                "transactionalLastUpdated": 1420727755443,
+                "lastUpdatedBy": "InitialLoad",
+                "state": "ACTIVE",
+                "id": 2,
+                "name": "Personal and Corporate Banking"
+            },
+            {
+                "lastUpdated": 1420727755447,
+                "transactionalLastUpdated": 1420727755447,
+                "lastUpdatedBy": "InitialLoad",
+                "state": "ACTIVE",
+                "id": 3,
+                "name": "BarclayCard"
+            },
+            {
+                "lastUpdated": 1420727755452,
+                "transactionalLastUpdated": 1420727755452,
+                "lastUpdatedBy": "InitialLoad",
+                "state": "ACTIVE",
+                "id": 4,
+                "name": "BarclayCard US"
+            },
+            {
+                "lastUpdated": 1420727755456,
+                "transactionalLastUpdated": 1420727755456,
+                "lastUpdatedBy": "InitialLoad",
+                "state": "ACTIVE",
+                "id": 5,
+                "name": "Barclays Africa"
+            },
+            {
+                "lastUpdated": 1420727755459,
+                "transactionalLastUpdated": 1420727755459,
+                "lastUpdatedBy": "InitialLoad",
+                "state": "ACTIVE",
+                "id": 6,
+                "name": "Non-Core"
+            }
+        ]
+    },
+    "ossLocationPrices": {
+        "price": [
+            {
+                "lastUpdated": 1421838990008,
+                "transactionalLastUpdated": 1421838990008,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationPriceId": 1105,
+                "ossLocationId": 1,
+                "validFrom": 1356998400000,
+                "priceFactor": 1
+            }
+        ]
+    },
+    "ossLocationAttributes": {
+        "attribute": [
+            {
+                "lastUpdated": 1421838989106,
+                "transactionalLastUpdated": 1421838989106,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61385,
+                "ossLocationId": 1,
+                "attKey": "EMP_LOCATION_ID",
+                "attValue": "GBR - London - 10 The South Colonnade Test Facility"
+            },
+            {
+                "lastUpdated": 1421838989184,
+                "transactionalLastUpdated": 1421838989184,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61386,
+                "ossLocationId": 1,
+                "attKey": "NETWORK_NON_PROD_TAG",
+                "attValue": "CloudContainerDev"
+            },
+            {
+                "lastUpdated": 1421838989250,
+                "transactionalLastUpdated": 1421838989250,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61387,
+                "ossLocationId": 1,
+                "attKey": "NETWORK_POP",
+                "attValue": "INNETVK"
+            },
+            {
+                "lastUpdated": 1421838989316,
+                "transactionalLastUpdated": 1421838989316,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61388,
+                "ossLocationId": 1,
+                "attKey": "NETWORK_PROD_TAG",
+                "attValue": "CloudContainerProd"
+            },
+            {
+                "lastUpdated": 1421838989382,
+                "transactionalLastUpdated": 1421838989382,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61389,
+                "ossLocationId": 1,
+                "attKey": "NUAGE_API_URL",
+                "attValue": "https://10.123.23.37:8443"
+            },
+            {
+                "lastUpdated": 1421838989446,
+                "transactionalLastUpdated": 1421838989446,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61390,
+                "ossLocationId": 1,
+                "attKey": "NUAGE_DOMAIN_NON_PROD",
+                "attValue": "Dev"
+            },
+            {
+                "lastUpdated": 1421838989511,
+                "transactionalLastUpdated": 1421838989511,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61391,
+                "ossLocationId": 1,
+                "attKey": "NUAGE_DOMAIN_PROD",
+                "attValue": "Prod"
+            },
+            {
+                "lastUpdated": 1421838989578,
+                "transactionalLastUpdated": 1421838989578,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61392,
+                "ossLocationId": 1,
+                "attKey": "NUAGE_ORGANIZATION",
+                "attValue": "BSS-bCloud-DEV-Slough"
+            },
+            {
+                "lastUpdated": 1421838989646,
+                "transactionalLastUpdated": 1421838989646,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61393,
+                "ossLocationId": 1,
+                "attKey": "OPENSTACK_ADDRESS",
+                "attValue": "http://10.123.2.2:5000"
+            },
+            {
+                "lastUpdated": 1421838989714,
+                "transactionalLastUpdated": 1421838989714,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61394,
+                "ossLocationId": 1,
+                "attKey": "OPENSTACK_QUOTASET_DEFAULT_INSTANCES",
+                "attValue": "15"
+            },
+            {
+                "lastUpdated": 1421838989774,
+                "transactionalLastUpdated": 1421838989774,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61395,
+                "ossLocationId": 1,
+                "attKey": "OPENSTACK_QUOTASET_DEFAULT_RAM_MB",
+                "attValue": "51200"
+            },
+            {
+                "lastUpdated": 1421838989837,
+                "transactionalLastUpdated": 1421838989837,
+                "lastUpdatedBy": "G01886171",
+                "state": "ACTIVE",
+                "ossLocationAttId": 61396,
+                "ossLocationId": 1,
+                "attKey": "OPENSTACK_QUOTASET_DEFAULT_VCPUS",
+                "attValue": "20"
+            }
+        ]
+    },
+    "environment": "ALL",
+    "message": "DEV OpenStack http://10.123.2.2:5000"
+}

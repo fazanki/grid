@@ -1,0 +1,87 @@
+<h1>Compute Service</h1>
+
+<form name='editContact' novalidate class=''>
+
+  <label>Status</label>
+  <ui-select ng-model='statusesselected.selected' theme='bootstrap' reset-search-input='false'>
+    <ui-select-match placeholder='Search'>
+        {{$select.selected.name}}
+    </ui-select-match>
+
+    <ui-select-choices repeat='e in statuses | filter: $select.search'>
+        {{e.name}}
+    </ui-select-choices>
+  </ui-select>
+
+  <hr>
+
+  <label for='textArea'>Service Message</label>
+  <textarea class="form-control" id='textArea'>{{message}}</textarea>
+
+
+  <hr>
+  <div data-angular-treeview="true" data-tree-id="abc"
+      data-tree-model="treedata"
+      data-node-id="id"
+      data-node-label="label"
+      data-node-children="children" >
+  </div>
+
+
+  <hr>
+  <label>Realm</label>
+  <ui-select ng-model='realmselected.selected' theme='bootstrap' reset-search-input='false'>
+    <ui-select-match placeholder='Search'>
+        {{$select.selected.name}}
+    </ui-select-match>
+
+    <ui-select-choices repeat='e in realm | filter: $select.search'>
+        {{e.name}}
+    </ui-select-choices>
+  </ui-select>
+
+  <hr>
+  <label>Business Scope</label>
+  <ul class='list-group '>
+    <li class='list-group-item' ng-repeat='businessscop in businessscopes'>
+      <label for='{{businessscop.name}}'><input id='{{businessscop.name}}' checked type='checkbox' name='{{businessscop.name}}'>  {{businessscop.name}}</label>
+    </li>
+  </ul>
+
+  <hr>
+  <double-field record='attributes'  attrkey='From - dd/mm/yyyy' attrvalue='Factor' required='true' ></double-field>
+  <table class='table table-striped table-hover'>
+    <tr>
+      <th>From - dd/mm/yyyy</th>
+      <th>Factor</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="pricefactor in pricefactors">
+      <td>{{pricefactor.attKey}}</td>
+      <td>{{pricefactor.priceFactor}}</td>
+      <td><button><span class="glyphicon glyphicon-remove-circle"></span></button></td>
+    </tr>
+  </table>
+
+
+  <hr>
+  <double-field record='attributes' attrkey='Attribute Key' fielda="attribute" fieldv='value' attrvalue='Attribute Value' required='true' ></double-field>
+
+  <table class='table table-striped table-hover'>
+    <tr>
+      <th>Attribute Key</th>
+      <th colspan="2">Attribute Value</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="attribute in attributes" ng-model="attribute.ossLocationAttId">
+      <td>{{attribute.attKey}}</td>
+      <td>{{attribute.attValue}}</td>
+      <td>
+          <button class="btn btn-default" ng-click="remove()"><span class="glyphicon glyphicon-remove-circle"></span></button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+

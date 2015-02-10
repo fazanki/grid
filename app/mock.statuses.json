@@ -1,0 +1,26 @@
+[
+    {
+        "lastUpdated": null,
+        "transactionalLastUpdated": null,
+        "lastUpdatedBy": null,
+        "state": "ACTIVE",
+        "id": 1,
+        "name": "Online"
+    },
+    {
+        "lastUpdated": null,
+        "transactionalLastUpdated": null,
+        "lastUpdatedBy": null,
+        "state": "ACTIVE",
+        "id": 2,
+        "name": "Maintenance"
+    },
+    {
+        "lastUpdated": null,
+        "transactionalLastUpdated": null,
+        "lastUpdatedBy": null,
+        "state": "ACTIVE",
+        "id": 3,
+        "name": "Offline"
+    }
+]

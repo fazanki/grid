@@ -1,6 +1,6 @@
 'use strict';
 // the describe keyword is used to define a test suite (group of tests)
-describe('double-field directive', function() {
+describe('grid service', function() {
 
     // we declare some global vars to be used in the tests
     var elm,        // our directive jqLite element
@@ -38,44 +38,55 @@ describe('double-field directive', function() {
         scope.$digest();
     }
 
-    describe('initialisation', function() {
+    describe('grid initialisation contoller', function() {
         // before each test in this block, generates a fresh directive
 
-        beforeEach(function() {
-            compileDirective();
-        });
+        // beforeEach(function() {
+        //     compileDirective();
+        // });
 
-        it('returns list of resources', inject(function(gridSerive){ //parameter name = service name
-           // expect( myService.one ).toEqual(1);
-        }))
-        // a single test example, check the produced DOM
-        it('should contain column header', function() {
-          // console.log(elm.find('input'));
-          //   expect(elm.find('input').length).toEqual(2);
-        });
-        it('should have at leaset name displayed', function() {
-          // console.log(elm.find('input'));
-          //   expect(elm.find('input').length).toEqual(2);
-        });
-        it('should display list of items', function() {
-          // console.log(elm.find('input'));
-          //   expect(elm.find('input').length).toEqual(2);
-        });
-        it('it should have serarch/filter item', function() {
-            // console.log(elm.find('button'));
-            // expect(elm.find('button').length).toEqual(1);
-        });
+        it('can get an instance of my factory', inject(function(GridSerivce){ //parameter name = service name
+            expect( GridSerivce ).toBeDefined();
+        }));
+
+        it('shoud define methods', inject(function(GridSerivce){ //parameter name = service name
+            expect( GridSerivce.getGridItems ).toBeDefined();
+            expect( GridSerivce.getGridItems ).toEqual(jasmine.any(Function));
+        }));
+
+        it('should have a list of fields', inject(function($controller) {
+            var scope = {},
+                ctrl  = $controller('GridCtrl', {$scope:scope});
+                expect(scope.fields.length).toBe(7);
+        }));
+
+        it('should have a sort fucntion', inject(function($controller) {
+            var scope = {},
+                ctrl  = $controller('GridCtrl', {$scope:scope});
+                expect(scope.sort).toEqual(jasmine.any(Function));
+        }));
+        // it('should have at least one service displayed', function() {
+        //     expect(elm.find('tr').length).toEqual(1);
+        // });
+        // it('should display list of items', function() {
+        //    expect(elm.find('tr').length).toEqual(1);
+        // });
+        // it('it should have serarch/filter item', function() {
+        //     console.log(elm.find('button'));
+        //     expect(elm.find('.search').length).toEqual(1);
+        // });
     });
 
 
     describe('event driven behaviour', function() {
-        it('it should filter result', function() {
-          // console.log(elm.find('input'));
-          //   expect(elm.find('input').length).toEqual(2);
-        });
-        it('it should sort items', function() {
-          // console.log(elm.find('input'));
-          //   expect(elm.find('input').length).toEqual(2);
-        });
+        // it('it should filter result', function() {
+        //   // console.log(elm.find('input'));
+        //   //   expect(elm.find('input').length).toEqual(2);
+        // });
+        // it('it should sort items', function() {
+        //   // console.log(elm.find('input'));
+        //   //   expect(elm.find('input').length).toEqual(2);
+        // });
     });
 
+});

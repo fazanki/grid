@@ -23,13 +23,13 @@ angular
   ])
   .config(function ($routeProvider , $locationProvider) {
     $routeProvider
-      .when('/computer_service_registry', {
-        templateUrl: 'components/service_registry/srView.html',
-        controller: 'SeriveRegistyCtrl'
+      .when('/gridView', {
+        templateUrl: 'components/service_registry/gridView.html',
+        controller: 'GridCtrl'
       })
 
       .otherwise({
-        redirectTo: '/computer_service_registry'
+        redirectTo: '/gridView'
       });
 
       $locationProvider.html5Mode(true);

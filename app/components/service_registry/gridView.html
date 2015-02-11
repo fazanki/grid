@@ -1,0 +1,42 @@
+<h1>Grid</h1>
+
+<form name='editContact' novalidate class=''>
+  <fieldset>
+    <legend>Legend</legend>
+    <p><input type='search' class='form-control' ng-model='query' placeholder='Search' /> </p>
+
+    <table class='table table-hover table-bordered'>
+      <thead>
+        <tr>
+          <th ng-repeat='field in fields' ng-click='sort(field)'>
+              {{ field | labelCase }}
+              <span ng-show='sort.field === field && !sort.order' class='glyphicon glyphicon-chevron-down'></span>
+              <span ng-show='sort.field === field && sort.order' class='glyphicon glyphicon-chevron-up'></span>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-click='show(contact.id)' ng-repeat='service in services | filter:query | orderBy: sort.field : sort.order '>
+
+        <td ng-repeat='field in fields'>
+            {{ service[field] }}
+        </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+    <div class="form-group">
+      <div class="form-group-left">
+        <button type="reset" class="btn btn-default">Add</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
+      </div>
+    </div>
+  </fieldset>
+
+</form>
+
+
+

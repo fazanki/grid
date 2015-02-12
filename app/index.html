@@ -26,6 +26,13 @@
     <!-- Add your site or application content here -->
     <div class="container">
         <div ng-view=""></div>
+
+         <button type="button" class="btn btn-default" data-toggle="popover" data-placement="left"  aria-describedby="popover77303">edit</button>
+
+         <div id="popover_content_wrapper" style="display: none">
+            <input type="text" name="tst" >
+            <button type="submit" class="btn btn-primary btn-disabled" ng-disabled="isDisabled">Save</button>
+        </div>
     </div>
 
 
@@ -54,6 +61,7 @@
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/siftlogic.angular.treeview/angular.treeview.js"></script>
     <script src="bower_components/bootswatch-dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -64,5 +72,20 @@
         <script src="/shared/doubleInput/double_inputDirective.js"></script>
         <script src="/shared/filters/filters.js"></script>
         <!-- endbuild -->
+
+
+        <script type="text/javascript">
+
+        $('[data-toggle="popover"]').popover(
+                {
+                trigger: 'click',
+                'placement': 'right',
+                 html : true,
+                 content: function() {
+                    return $('#popover_content_wrapper').html();
+                }
+
+        });
+    </script>
 </body>
 </html>

@@ -38,22 +38,24 @@ describe('grid service', function() {
         scope.$digest();
     }
 
-    describe('grid initialisation contoller', function() {
+    describe('grid factories', function() {
         // before each test in this block, generates a fresh directive
 
         // beforeEach(function() {
         //     compileDirective();
         // });
 
-        it('can get an instance of my factory', inject(function(GridSerivce){ //parameter name = service name
+        it('can get an instance of Grid factory', inject(function(GridSerivce){ //parameter name = service name
             expect( GridSerivce ).toBeDefined();
         }));
 
-        it('shoud define methods', inject(function(GridSerivce){ //parameter name = service name
+        it('shoud define factory methods', inject(function(GridSerivce){ //parameter name = service name
             expect( GridSerivce.getGridItems ).toBeDefined();
             expect( GridSerivce.getGridItems ).toEqual(jasmine.any(Function));
         }));
+    });
 
+    describe('grid initialisation contoller', function() {
         it('should have a list of fields', inject(function($controller) {
             var scope = {},
                 ctrl  = $controller('GridCtrl', {$scope:scope});
@@ -65,6 +67,26 @@ describe('grid service', function() {
                 ctrl  = $controller('GridCtrl', {$scope:scope});
                 expect(scope.sort).toEqual(jasmine.any(Function));
         }));
+
+        it('should have a focus fucntion', inject(function($controller) {
+            var scope = {},
+                ctrl  = $controller('GridCtrl', {$scope:scope});
+                expect(scope.focused).toEqual(jasmine.any(Function));
+        }));
+
+        it('should have a blured fucntion', inject(function($controller) {
+            var scope = {},
+                ctrl  = $controller('GridCtrl', {$scope:scope});
+                expect(scope.blured).toEqual(jasmine.any(Function));
+        }));
+
+        it('should have a edit fucntion', inject(function($controller) {
+            var scope = {},
+                ctrl  = $controller('GridCtrl', {$scope:scope});
+                expect(scope.edit).toEqual(jasmine.any(Function));
+        }));
+
+
         // it('should have at least one service displayed', function() {
         //     expect(elm.find('tr').length).toEqual(1);
         // });

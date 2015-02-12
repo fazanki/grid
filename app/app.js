@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.select',
-    'angularTreeview'
+    'angularTreeview',
+    'angularUtils.directives.dirPagination'
   ])
   .config(function ($routeProvider , $locationProvider) {
     $routeProvider

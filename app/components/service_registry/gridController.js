@@ -17,7 +17,6 @@ angular.module('appServiceRegirty')
     });
 
     $scope.sort = function(field) {
-      $scope.sort.order = true;
       $scope.sort.field = field;
       $scope.sort.order = !$scope.sort.order;
     };
@@ -33,6 +32,10 @@ angular.module('appServiceRegirty')
 
     $scope.edit = function(service) {
       $location.url($scope.editUrl);
+    };
+
+    $scope.onClick = function() {
+      alert('sfasd');
     };
 
     $scope.sort.field = 'ossName';

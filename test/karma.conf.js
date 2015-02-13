@@ -42,6 +42,7 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-ui-select/dist/select.min.js',
       'bower_components/siftlogic.angular.treeview/angular.treeview.js',
+      'bower_components/angular-utils-pagination/dirPagination.js'
 
       'app/*.js',
       'app/components/**/*.js',

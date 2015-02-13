@@ -18,11 +18,11 @@
 
       <tbody>
         <tr ng-click='show(contact.id)'  ng-focus='focused(service)'
-        ng-blur='blured()' dir-paginate='service in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 1 '>
-
+        ng-blur='blured()' dir-paginate='service in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 10 '>
+        <script id="test">test</script>
         <td ng-repeat='field in fields' >
             {{ service[field] }}
-            <span class="glyphicon glyphicon-pencil" ng-bind="popover" popover data-toggle="popover" style="float:right"></span>
+            <span class="glyphicon glyphicon-pencil" fieldname="{{ service[field] }}" popover ns-popover-template="test" on-click="onClick(question)" savename='save' style="float:right"></span>
         </td>
 
         </tr>

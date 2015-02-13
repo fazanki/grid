@@ -100,6 +100,23 @@ describe('grid service', function() {
     });
 
 
+     describe('pagination direcive', function() {
+        beforeEach(function() {
+            compileDirective('<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/shared/pagination/dirPagination.tpl.html"></dir-pagination-controls>');
+        });
+
+
+        it('should produce 2 buttons and a div', function() {
+            console.log(elm)
+            expect(elm.find('ul').length).toEqual(1);
+           // expect(elm.find('div').length).toEqual(1);
+        });
+        // it('should check validity on init', function() {
+        //     expect(scope.form.$valid).toBeTruthy();
+        // });
+    });
+
+
     describe('event driven behaviour', function() {
         // it('it should filter result', function() {
         //   // console.log(elm.find('input'));

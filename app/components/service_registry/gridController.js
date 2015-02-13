@@ -10,7 +10,7 @@
 angular.module('appServiceRegirty')
   .controller('GridCtrl', function ($scope, GridSerivce, $location) {
     $scope.isDisabled = true;
-    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status'];
+    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listItems'];
 
     GridSerivce.getGridItems().success(function(data){
       $scope.services = data;
@@ -40,6 +40,5 @@ angular.module('appServiceRegirty')
 
     $scope.sort.field = 'ossName';
     $scope.sort.order = false;
-
 
   });

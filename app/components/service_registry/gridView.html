@@ -18,11 +18,37 @@
 
       <tbody>
         <tr ng-click='show(contact.id)'  ng-focus='focused(service)'
-        ng-blur='blured()' dir-paginate='service in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 10 '>
+        ng-blur='blured()' dir-paginate='service in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 10'>
 
         <td ng-repeat='field in fields' >
+
+          <div ng-if='field != "listItems" '>
             {{ service[field] }}
-            <span class="glyphicon glyphicon-pencil" fieldname="{{ service[field] }}" popover ns-popover-template="test" on-click="onClick(question)" savename='save' style="float:right"></span>
+          </div>
+
+          <div ng-if='field == "listItems" '>
+
+            <ui-select ng-model='service[field]' theme='bootstrap' reset-search-input='false'>
+              <ui-select-match placeholder='select'>
+                  {{$select.selected.v}}
+              </ui-select-match>
+
+              <ui-select-choices repeat='(k,v) in service[field] | filter: $select.search'>
+                  {{ v }}
+              </ui-select-choices>
+            </ui-select>
+
+
+             <ui-select ng-model="selectedBlah" theme="bootstrap">
+                <ui-select-match placeholder="Choose a blah...">{{$select.selected}}</ui-select-match>
+                <ui-select-choices repeat="(key,value) in service[field] | filter: $select.search">
+                    <div ng-bind-html="key"></div>
+                </ui-select-choices>
+            </ui-select>
+
+          </div>
+
+            <span class="glyphicon glyphicon-pencil" fieldname="{{ service[field] }}" popover savename='save' style="float:right"></span>
         </td>
 
         </tr>

@@ -49,41 +49,47 @@ angular.module('appServiceRegirty')
   })
 
   .directive('popover', function($compile) {
-  return {
-    restrict: 'EAC',
-    template: "<div id='pop-over-content' style='display:none'><button class='btn btn-primary' ng-click='testFunction()'>Ok</button></div>",
-    link: function(scope, elem, attrs) {
 
-      elem.popover(
-        {
-          trigger: 'click',
-          'placement': 'top',
-          html : true,
-          self : this,
-          'container': 'body',
-          // 'content': function() {
-          //     return $compile($("#pop-over-content").html())(scope);
-          // }
-          'content': function() {
-            return $compile($('<div />').append(
+
+    var hideAllPopovers = function() {
+       $('.popover-content').each(function() {
+            $(this).remove()
+        });
+    };
+
+    return {
+      restrict: 'EAC',
+
+      link: function(scope, elem, attrs) {
+
+        elem.popover(
+          {
+            trigger: 'click',
+            'placement': 'top',
+            html : true,
+            self : this,
+            'container': 'body',
+            content: function() {
+              return $compile($('<div />').append(
                 $('<input/>').attr({value: attrs.fieldname, type: 'text', id: 'test', name: 'test'}),
-                $('<input/>').attr({'ng-click':'onClick()', value: attrs.savename, type: 'submit', class: 'btn btn-primary'})
-                // .click(function() {
-                //   elem.popover('hide');
-                // })
+                $('<input/>').attr({'ng-click':'onClick()', value: attrs.savename, type: 'submit', class: 'btn btn-primary'}),
+                $('<span />', {'class': 'glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'})
               ))(scope);
-              // .click(function(e) {
-              //   $compile(elem.contents())(scope.$new());
-              // });
+
+            }
           }
+        )
+
+        scope.onClick = function() {
+          elem.popover('hide');
+          console.log('hello');
+        };
+
+        scope.remove = function() {
+           elem.popover('hide');
         }
-      );
-      scope.onClick = function() {
-        elem.popover('hide');
-        console.log('hello');
       }
-    }
-  };
+    };
 
 
 });

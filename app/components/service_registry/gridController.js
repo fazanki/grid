@@ -14,7 +14,9 @@ angular.module('appServiceRegirty')
 
     GridSerivce.getGridItems().success(function(data){
       $scope.services = data;
+      $scope.listItems = data.listItem;
     });
+     $scope.selectedListItems = {};
 
     $scope.sort = function(field) {
       $scope.sort.field = field;
@@ -40,5 +42,9 @@ angular.module('appServiceRegirty')
 
     $scope.sort.field = 'ossName';
     $scope.sort.order = false;
+
+
+    //// mockups
+    $scope.number = 0;
 
   });

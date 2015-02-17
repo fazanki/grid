@@ -1,93 +1,78 @@
 angular.module('appServiceRegirty')
-  // .directive('doubleField', function ($timeout) {
-  //   return {
-  //     restrict: 'EA',
-  //     templateUrl: '/shared/doubleInput/double_inputView.html',
-  //     replace: true,
-  //     scope: {
-  //       record: '=',
-  //       attrkey: '@',
-  //       attrvalue: '@',
-  //       fielda: '@',
-  //       fieldv: '@'
-  //     },
 
-  //     require: '^form',
+  .directive('popover', function($compile, $window) {
 
-  //     link: function ($scope, element, attrs, form) {
-
-  // //        var test = $scope.$eval(attrs.atKey);
-  //         //console.log(attrs.$attr.attrkey);
-
-  //         // $scope.$on('record:invalid', function () {
-  //         //   $scope[$scope.field].$setDirty();
-  //         // });
-
-  //         // $scope.types = FieldTypes
-
-  //         $scope.add = function () {
-  //           alert('added');
-  //         }
-
-  //         // $scope.blurUpdate = function () {
-  //         //     console.log('valid= ' + form.$valid);
-  //         //     if ($scope.live !== 'false' && form.$valid) {
-  //         //         $scope.record.$update(function (updatedRecord) {
-  //         //           $scope.record = updatedRecord;
-  //         //         });
-  //         //     }
-  //         // };
-
-  //         // var saveTimeout;
-  //         // $scope.update = function () {
-  //         //     $timeout.cancel(saveTimeout);
-  //         //     saveTimeout = $timeout($scope.blurUpdate, 1000);
-  //         // };
-  //       }
-  //     };
-
-  // })
-
-  .directive('popover', function($compile) {
 
     return {
       restrict: 'EAC',
 
       link: function(scope, elem, attrs) {
-        var content;
-        if (false) {
-          content = $('<div />').text('hello world');
+        var content,
+            fieldtype = attrs.fieldtype,
+            tplInput  = $('<div />').append(
+                          $('<input/>').attr({value: attrs.fieldname, type: 'text', id: 'test', name: 'test'}),
+                          $('<input/>').attr({'ng-click':'onClick()', value: attrs.savename, type: 'submit', class: 'btn btn-primary'}),
+                          $('<span />', {'class': 'glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'})
+                        ),
+            tplSelect =   ' <ui-select on-select="refresh($item, $model)" ng-model="selectedListItems[key].selected" theme="bootstrap" reset-search-input="false">' +
+                          '   <ui-select-match placeholder="Search"> ' +
+                          '      {{ $select.selected.name }} ' +
+                          '   </ui-select-match> ' +
+                          '   <ui-select-choices repeat="list in value[field] | filter: $select.search">' +
+                          '      {{ list.name }}' +
+                          '   </ui-select-choices>' +
+                          '  </ui-select>' +
+                          '  <span class="glyphicon glyphicon-remove" ng-click="remove()"> </span>';
+
+
+        if (fieldtype === "select") {
+          content = function () {
+            return $compile(tplSelect)(scope);
+          };
         } else {
           content = function() {
-            return $compile(
-              $('<div />').append(
-                $('<input/>').attr({value: attrs.fieldname, type: 'text', id: 'test', name: 'test'}),
-                $('<input/>').attr({'ng-click':'onClick()', value: attrs.savename, type: 'submit', class: 'btn btn-primary'}),
-                $('<span />', {'class': 'glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'})
-              ))(scope);
+            return $compile(tplInput)(scope);
           };
         }
 
         elem.popover({
-          trigger: 'click',
-          'placement': 'top',
-          html : true,
-          self : this,
-          'container': 'body',
-          content: content
-
+          trigger     : 'click',
+          placement   : 'top',
+          html        : true,
+          self        : this,
+          container   : 'body',
+          content     : content
         });
 
         scope.onClick = function() {
           elem.popover('hide');
-          console.log('hello');
         };
 
         scope.remove = function() {
            elem.popover('hide');
         };
+
+        scope.refresh = function(i, m) {
+           elem.popover('hide');
+           console.log(i + m);
+        };
+
+        var w = angular.element($window);
+        scope.getWindowDimensions = function () {
+            return {
+                'h': w.height(),
+                'w': w.width()
+            };
+        };
+
+        scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
+            elem.popover('hide');
+        }, true);
+
+        w.bind('resize', function () {
+            scope.$apply();
+        });
+
       }
     };
-
-
 });

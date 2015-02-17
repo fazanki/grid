@@ -101,6 +101,7 @@
         "datacenter" : "London ETF",
         "businessScopes" : "InvestmentBanking",
         "realm" : "Campus/CIPE",
+        "listItems" : [{"name":"list one"},{"name":"list two"},{"name":"list three"},{"name":"list four"},{"name":"list five"}],
 
         "location": {
             "lastUpdated": 1423043257993,
@@ -171,6 +172,7 @@
         "datacenter" : "London ETF",
         "businessScopes" : "InvestmentBanking",
         "realm" : "Campus/CIPE",
+         "listItems" : [{"name":"list one"},{"name":"list one"},{"name":"list one"},{"name":"list one"},{"name":"list one"}],
 
         "location": {
             "lastUpdated": 1423043257993,
@@ -240,7 +242,7 @@
         "datacenter" : "London Canary Wharf",
         "businessScopes" : "unknown",
         "realm" : "Campus/London",
-        "listItems" : ["list one","list two","list three","list fore","list five"],
+        "listItems" : [{"name":"list one"},{"name":"list one"},{"name":"list one"},{"name":"list one"},{"name":"list one"}],
 
         "location": {
             "lastUpdated": 1423043257993,

@@ -2,6 +2,20 @@ angular.module('appServiceRegirty')
 
   .directive('popover', function($compile, $window) {
 
+    var createList = function(listItems) {
+      var $ul = $('<ul />');
+
+      $.each(listItems, function(i, data) {
+        $ul.append(
+          $('<li />').text(data.name),
+          $('<a />').attr({'href':'#'}).text('edit')
+        );
+      });
+      $ul.append(
+          $('<span />', {'class': 'glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'})
+       );
+      return $ul;
+    };
 
     return {
       restrict: 'EAC',
@@ -24,10 +38,20 @@ angular.module('appServiceRegirty')
                           '  </ui-select>' +
                           '  <span class="glyphicon glyphicon-remove" ng-click="remove()"> </span>';
 
+        if ( attrs.listitems !== undefined ) {
+          var evalObject  = JSON.parse(attrs.listitems),
+              tplListEdit = createList(evalObject);
+         }
+
+
 
         if (fieldtype === "select") {
           content = function () {
             return $compile(tplSelect)(scope);
+          };
+        } else if (fieldtype === "editList") {
+          content = function() {
+            return $compile(tplListEdit)(scope);
           };
         } else {
           content = function() {
@@ -41,7 +65,8 @@ angular.module('appServiceRegirty')
           html        : true,
           self        : this,
           container   : 'body',
-          content     : content
+          content     : content,
+          'max-width': '100%'
         });
 
         scope.onClick = function() {

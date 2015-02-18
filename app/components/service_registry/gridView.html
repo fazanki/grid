@@ -2,7 +2,6 @@
 
 <form name='editContact' novalidate class=''>
   <fieldset>
-
     <p><input type='search' class='form-control' ng-model='query' placeholder='Search' /> </p>
 
     <table class='table table-hover table-bordered'>
@@ -15,31 +14,27 @@
           </th>
         </tr>
       </thead>
-
       <tbody>
         <tr ng-click='show(contact.id)'  ng-focus='focused(service)'
-        ng-blur='blured()' dir-paginate='(key, value) in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 10   '>
-        <td ng-repeat='field in fields' >
+        ng-blur='blured()' dir-paginate='(key, value) in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 4   '>
 
-          <div ng-if='field != "listItems" '>
-            {{ value[field] }}
-            <span fieldtype="textinput" class="glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
-          </div>
+          <td ng-repeat='field in fields' ng-switch='field'>
+            <div ng-switch-default >
+              {{ value[field] }}
+              <span fieldtype="textinput" class="glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
+            </div>
 
-          <div ng-if='field == "listItems" '>
+            <div ng-switch-when='listSelectItems'>
+              {{selectedListItems[key].selected}}
+              <span fieldtype="select" class="glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
+            </div>
 
-            {{selectedListItems[key].selected}}
-
-            <span fieldtype="select" class="glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
-
-          </div>
-
-
-        </td>
-
+            <div ng-switch-when='listEditItems'>
+              <span fieldtype="editList" listitems='{{value[field]}}' class="glyphicon glyphicon-th-list" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
+            </div>
+          </td>
         </tr>
       </tbody>
-
     </table>
 
     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="shared/pagination/dirPagination.tpl.html"></dir-pagination-controls>
@@ -51,7 +46,6 @@
       </div>
     </div>
   </fieldset>
-  {{sort.order}}
 </form>
 
 

@@ -9,14 +9,16 @@
  */
 angular.module('appServiceRegirty')
   .controller('GridCtrl', function ($scope, GridSerivce, $location) {
+
     $scope.isDisabled = true;
-    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listItems'];
+    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listSelectItems', 'listEditItems'];
 
     GridSerivce.getGridItems().success(function(data){
       $scope.services = data;
       $scope.listItems = data.listItem;
     });
-     $scope.selectedListItems = {};
+
+    $scope.selectedListItems = {};
 
     $scope.sort = function(field) {
       $scope.sort.field = field;
@@ -37,14 +39,10 @@ angular.module('appServiceRegirty')
     };
 
     $scope.onClick = function() {
-      alert('sfasd');
+      console.log('clicked');
     };
 
     $scope.sort.field = 'ossName';
     $scope.sort.order = false;
-
-
-    //// mockups
-    $scope.number = 0;
 
   });

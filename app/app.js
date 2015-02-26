@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 /**
  * @ngdoc overview
@@ -10,8 +10,6 @@
  */
 angular
   .module('appServiceRegirty', [
-    'ngAnimate',
-    'ngAria',
     'ngCookies',
     'ngMessages',
     'ngResource',

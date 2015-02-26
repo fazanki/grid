@@ -10,13 +10,22 @@
 angular.module('appServiceRegirty')
   .controller('GridCtrl', function ($scope, GridSerivce, $location) {
 
-    $scope.isDisabled = true;
-    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listSelectItems', 'listEditItems'];
+    $scope.testCtrl = [{name:'Red'}, {name:'Blue'}];
 
-    GridSerivce.getGridItems().success(function(data){
-      $scope.services = data;
-      $scope.listItems = data.listItem;
-    });
+    $scope.isDisabled = true;
+    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listSelectItems'];
+
+
+    $scope.testClick = function() {
+      alert('clicked');
+    }
+    function refresh() {
+      GridSerivce.getGridItems().success(function(data){
+        $scope.services = data;
+          $scope.listItems = data.listItem;
+      });
+     }
+    refresh();
 
     $scope.selectedListItems = {};
 
@@ -25,8 +34,8 @@ angular.module('appServiceRegirty')
       $scope.sort.order = !$scope.sort.order;
     };
 
-    $scope.focused = function(service) {
-      $scope.editUrl = service;
+    $scope.focused = function() {
+     // $scope.editUrl = service;
       $scope.isDisabled = false;
     };
 
@@ -38,8 +47,9 @@ angular.module('appServiceRegirty')
       $location.url($scope.editUrl);
     };
 
-    $scope.onClick = function() {
-      console.log('clicked');
+    $scope.onRowClick = function() {
+     //  $scope.editUrl = service;
+      $scope.isDisabled = false;
     };
 
     $scope.sort.field = 'ossName';

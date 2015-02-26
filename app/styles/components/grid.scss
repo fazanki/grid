@@ -1,0 +1,35 @@
+.grid__table {
+  clear: both;
+}
+
+.gird__table_p {
+  float:left;
+  margin:0px 20px 0 0;
+}
+
+.grid__table_td,
+.grid__table_th {
+  position: relative;
+}
+
+.grid__table_icon,
+.grid__table_span  {
+  position:absolute;
+  top:0px;
+  right:0px;
+  font-size: x-small;
+  cursor: pointer;
+  height:100%;
+  background: #ddd;
+  display: block;
+  padding:5px
+}
+
+.grid__table_span {
+  top:50%;
+  background:none;
+}
+
+.grid__table_span {
+  float:left;
+}

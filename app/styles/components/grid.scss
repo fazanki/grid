@@ -10,6 +10,11 @@
 .grid__table_td,
 .grid__table_th {
   position: relative;
+  &:hover {
+    .grid__table_icon {
+        display:block;
+    }
+  }
 }
 
 .grid__table_icon,
@@ -24,7 +29,9 @@
   display: block;
   padding:5px
 }
-
+.grid__table_icon {
+  display: none;
+}
 .grid__table_span {
   top:50%;
   background:none;

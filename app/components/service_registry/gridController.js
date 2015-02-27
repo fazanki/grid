@@ -10,22 +10,19 @@
 angular.module('appServiceRegirty')
   .controller('GridCtrl', function ($scope, GridSerivce, $location) {
 
-    $scope.testCtrl = [{name:'Red'}, {name:'Blue'}];
+    $scope.testCtrl = [{name:'blue'}, {name:'Blue'}];
 
     $scope.isDisabled = true;
-    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listSelectItems'];
-
+    $scope.fields = ['ossName', 'region', 'territory', 'datacenter', 'businessScopes', 'realm', 'status', 'listSelectItems', 'listEditItems'];
 
     $scope.testClick = function() {
       alert('clicked');
     }
-    function refresh() {
-      GridSerivce.getGridItems().success(function(data){
-        $scope.services = data;
-          $scope.listItems = data.listItem;
-      });
-     }
-    refresh();
+
+    GridSerivce.getGridItems().success(function(data){
+      $scope.services = data;
+        $scope.listItems = data.listItem;
+    });
 
     $scope.selectedListItems = {};
 

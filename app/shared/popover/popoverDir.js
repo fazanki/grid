@@ -100,6 +100,21 @@ angular.module('appServiceRegirty')
                         scope.$apply();
                     }
                 });
+
+                /// hover effect
+                elem.closest('td').bind('mouseenter', function () {
+                  elem.show();
+                });
+
+                elem.closest('td').bind('mouseleave', function () {
+                  elem.hide();
+                  elem.popover('hide');
+
+
+                  //elem.parent().removeClass('open');
+
+                });
+
             }
         };
     });

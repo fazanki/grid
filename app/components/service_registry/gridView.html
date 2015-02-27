@@ -22,20 +22,24 @@
                 <tr ng-click="onRowClick()" ng-focus='focused()' ng-blur='blured()' dir-paginate='(key, value) in services | filter:query | orderBy: sort.field : sort.order | itemsPerPage: 4   '>
 
                     <td ng-repeat='field in fields' ng-switch='field' class='grid__table_td'>
+
                         <div ng-switch-default >
+                            {{field.isVisible}}
                          <p class='gird__table_p'>  {{ value[field] }} </p>
                             <span fieldtype="textinput" class="grid__table_icon glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
                         </div>
 
                         <div ng-switch-when='listSelectItems'>
                             {{selectedListItems[key].selected}}
-
+                            {{field.isVisible}}
                             <span fieldtype="select" class="grid__table_icon glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save'></span>
                         </div>
 
                         <div ng-switch-when='listEditItems'>
+                            {{field.isVisible}}
                             <span fieldtype="editList" listitems='{{value[field]}}' class=" grid__table_icon glyphicon glyphicon-th-list" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></span>
                         </div>
+
                     </td>
                 </tr>
                 </tbody>

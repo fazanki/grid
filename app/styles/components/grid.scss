@@ -1,19 +1,25 @@
-.grid__table {
+.grid-table {
   clear: both;
 }
-
-.gird__table_p {
-  float:left;
-  margin:0px 20px 0 0;
+.grid-table__heading-button {
+  background:none;
+  border:none;
+  padding:0;
+  margin:0;
 }
-
-.grid__table_td,
-.grid__table_th {
+.grid-table_td,
+.grid-table_th {
   position: relative;
 }
+.gird_table_p {
+  padding-right: 20px;
+}
+.grid-table_th {
+  cursor: pointer;
+}
 
-.grid__table_icon,
-.grid__table_span  {
+.grid-table_icon,
+.grid-table_span  {
   position:absolute;
   top:0px;
   right:0px;
@@ -25,15 +31,15 @@
   padding:5px
 }
 
-.grid__table_span {
+.grid-table_span {
   top:50%;
   background:none;
 }
 
-.grid__table_icon {
+.grid-table_icon {
   display:none;
 }
 
-.grid__table_span {
+.grid-table_span {
   float:left;
 }

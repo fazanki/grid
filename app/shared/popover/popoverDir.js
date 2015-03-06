@@ -1,6 +1,6 @@
 angular.module('appServiceRegirty')
 
-    .directive('popover', function($compile, $window) {
+    .directive('popover', function($compile, $window, $timeout) {
 
         var createList = function(listItems) {
             var $ul = $('<ul />').attr({'class':'popover-content__list'});
@@ -23,7 +23,7 @@ angular.module('appServiceRegirty')
             link: function(scope, elem, attrs) {
                 var content,
                     fieldtype = attrs.fieldtype,
-                    tplInput  = $('<div />').append(
+                    tplInput  = $('<div />', {'tabindex':'-1'}).append(
                         $('<input/>').attr({value: attrs.fieldname, type: 'text', id: 'test', name: 'test', 'class': 'popover-content__input'}),
                         $('<input/>').attr({'ng-click':'onClick()', value: attrs.savename, type: 'submit', 'class': 'popover-content__search btn btn-primary'}),
                         $('<span />', {'class': 'popover-content__icon glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'})
@@ -60,7 +60,7 @@ angular.module('appServiceRegirty')
                 }
 
                 elem.popover({
-                    trigger     : 'click',
+                    trigger     : 'manual',
                     placement   : 'top',
                     html        : true,
                     self        : this,
@@ -101,18 +101,56 @@ angular.module('appServiceRegirty')
                     }
                 });
 
-                /// hover effect
+                ///
+                // var $body = angular.element("body");
+                // var _hide = function () {
+                //     if (scope.$hide) {
+                //         scope.$hide();
+                //         scope.$apply();
+                //     }
+                // };
+
+                // Stop propagation when clicking inside popover.
+                // $timeout(function() {
+                //     elem.on("click", function (event) {
+                //         event.stopPropagation();
+                //     });
+
+                //     // Hide when clicking outside.
+                //     $body.one("click", _hide);
+
+                //     // Safe remove.
+                //     scope.$on("$destroy", function () {
+                //         $body.off("click", _hide);
+                //         elem.off("click");
+                //     });
+                // }, 0);
+
+                /// edit icon hover effect
                 elem.closest('td').bind('mouseenter', function () {
+                  elem.show();
+                  elem.popover();
+                });
+
+                elem.closest('td').bind('focus', function () {
                   elem.show();
                 });
 
                 elem.closest('td').bind('mouseleave', function () {
                   elem.hide();
-                  elem.popover('hide');
+                });
 
+                elem.bind('blur', function () {
+                  elem.hide();
+                });
 
-                  //elem.parent().removeClass('open');
+                elem.bind('click', function () {
+                  elem.popover('toggle');
+                  var $popover = angular.element('[tabindex="-1"]');
+                  $popover.focus();
+                  $popover.blur(function() {
 
+                  });
                 });
 
             }

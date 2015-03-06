@@ -3,7 +3,7 @@
 
     <form name='editContact' novalidate class=''>
         <fieldset>
-
+            <legend class="visually-hidden">search</legend>
             <div class='search'>
                 <label for="search" class="visually-hidden">Search</label>
                 <input id='search' type='search' class='search__input form-control' ng-model='query' placeholder='Search' tabindex="1" />
@@ -27,18 +27,16 @@
 
                         <div ng-switch-default >
                          <p class='gird_table_p'>  {{ value[field] }} </p>
-                         <fieldset>
-                            <button tabindex='4' focusablePopover fieldtype="textinput" class="grid-table_icon glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></button>
-                         </fieldset>
+                            <button tabindex='4' focusablePopover fieldtype="textinput" class="grid-table_icon glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save' style="float:right"> <span class="visually-hidden">edit - opens in popup</span> </button>
                         </div>
 
                         <div ng-switch-when='listSelectItems'>
                             {{selectedListItems[key].selected}}
-                            <button fieldtype="select" class="grid-table_icon glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save'></button>
+                            <button fieldtype="select" class="grid-table_icon glyphicon glyphicon-pencil" fieldname="{{ value[field] }}" popover savename='save'> <span class="visually-hidden">edit opens in popup</span> </button>
                         </div>
 
                         <div ng-switch-when='listEditItems'>
-                            <button fieldtype="editList" listitems='{{value[field]}}' class=" grid-table_icon glyphicon glyphicon-th-list" fieldname="{{ value[field] }}" popover savename='save' style="float:right"></button>
+                            <button fieldtype="editList" listitems='{{value[field]}}' class=" grid-table_icon glyphicon glyphicon-th-list" fieldname="{{ value[field] }}" popover savename='save' style="float:right"><span class="visually-hidden">edit opens in popup</span> </button>
                         </div>
 
                     </td>

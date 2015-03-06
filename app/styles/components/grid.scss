@@ -18,28 +18,27 @@
   cursor: pointer;
 }
 
-.grid-table_icon,
-.grid-table_span  {
+.grid-table_icon {
   position:absolute;
   top:0px;
   right:0px;
   font-size: x-small;
   cursor: pointer;
-  height:100%;
   background: #ddd;
   display: block;
-  padding:5px
+  padding:5px;
+  border:none;
+  height:100%;
 }
 
 .grid-table_span {
-  top:50%;
   background:none;
+  float:right;
+  font-size: x-small;
 }
 
 .grid-table_icon {
   display:none;
+
 }
 
-.grid-table_span {
-  float:left;
-}

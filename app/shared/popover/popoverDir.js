@@ -26,7 +26,7 @@ angular.module('appServiceRegirty')
                     tplInput  = $('<div />', {'tabindex':'-1'}).append(
                         $('<input/>').attr({value: attrs.fieldname, type: 'text', id: 'test', name: 'test', 'class': 'popover-content__input'}),
                         $('<input/>').attr({'ng-click':'onClick()', value: attrs.savename, type: 'submit', 'class': 'popover-content__search btn btn-primary'}),
-                        $('<span />', {'class': 'popover-content__icon glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'})
+                        $('<button />', {'class': 'popover-content__icon glyphicon glyphicon-remove'}).attr({'ng-click':'remove()'}).html($('<span />', {'class':'visually-hidden'}).text('close'))
                     ),
                     tplSelect =   ' <ui-select on-select="refresh($item, $model)" ng-model="selectedListItems[key].selected" theme="bootstrap" reset-search-input="false">' +
                         '   <ui-select-match placeholder="Search"> ' +

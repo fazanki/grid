@@ -50,7 +50,12 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-        <div ng-view=""></div>
+        <div class='row'>
+          <div ng-include="'shared/partials/nav/nav.html'"></div>
+        </div>
+        <div class='row'>
+          <div ng-view=""></div>
+        </div>
     </div>
 
 
@@ -88,6 +93,7 @@
     <script src="/app.js"></script>
     <script src="/components/service_registry/gridController.js"></script>
     <script src="/components/service_registry/gridFactories.js"></script>
+    <script src="/shared/partials/nav/navFactories.js"></script>
     <script src="/shared/popover/popoverDir.js"></script>
     <script src="/shared/filters/filters.js"></script>
     <!-- endbuild -->

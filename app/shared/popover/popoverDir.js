@@ -46,19 +46,17 @@ angular.module('appServiceRegirty')
                 tplListEdit = helper.createList(evalObject);
         }
 
-
-
         if (fieldtype === "select") {
             content = function () {
-                return $compile(tplSelect)(scope);
+              return $compile(tplSelect)(scope);
             };
         } else if (fieldtype === "editList") {
             content = function() {
-                return $compile(tplListEdit)(scope);
+              return $compile(tplListEdit)(scope);
             };
         } else {
             content = function() {
-                return $compile(tplInput)(scope);
+              return $compile(tplInput)(scope);
             };
         }
 
@@ -106,6 +104,7 @@ angular.module('appServiceRegirty')
 
         ///
         var $body = angular.element("body"),
+            $search = angular.element('.search__input'),
             _hide = function (e) {
               $('.popover').each(function () {
 
@@ -120,17 +119,16 @@ angular.module('appServiceRegirty')
                 }
               });
             };
-
         // Stop propagation when clicking inside popover.
         $timeout(function() {
           $body.on("click", _hide);
+          $search.on('click', function(){alert('something')});
         }, 0);
 
         /// edit icon hover effect
         elem.closest('td').bind('mouseenter', function () {
           elem.show();
           elem.popover();
-         // elem.closest('td').unbuind('mouseleave');
         });
 
         elem.closest('td').bind('focus', function () {

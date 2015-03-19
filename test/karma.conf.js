@@ -46,7 +46,7 @@ module.exports = function(config) {
 
       'app/*.js',
       'app/components/**/*.js',
-      'app/shared/**/*.js',
+     // 'app/shared/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js',
       'app/shared/**/*.html'
